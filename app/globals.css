@@ -2,22 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --bgDark: #2b2b2b;
+  --bgcontrastDark:#252525;
+  --textcolorDark: #dddddd;
+
+
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    /*--foreground: #ededed;*/
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: var(--bgDark);
   font-family: Arial, Helvetica, sans-serif;
+}
+.spaceSide{
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 @layer utilities {
