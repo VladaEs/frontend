@@ -3,17 +3,20 @@ import styles from './textArea.module.css'
 import { useState, useRef } from 'react'
 const TextArea = ()=>{
     const [textValue, setTextValue]= useState('');
-    const [areaHeight, setAreaHeight]= useState(3);
+    
     const textAreaRef= useRef(null);
-    const updateHeight=()=>{
-
-    }
-    const resizeTextArea= (event)=>{
+    const updateHeight = () => {
+        if (textAreaRef.current) {
+      
+            textAreaRef.current.style.height = 'auto'; // reset the height
+      
+            textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;// set the height
+        }
+    };
+    const resizeTextArea = (event) => {
         setTextValue(event.target.value);
-        console.log(event.target.scrollHeight);
-        
-    }
-
+        updateHeight();
+    };
     return(
         <>
             <textarea className={`py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400
